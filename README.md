@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DivineHindu Homepage Clone (Next.js + TS + Tailwind)
+
+This project scaffolds a pixel-perfect clone of the DivineHindu.in homepage using:
+- Next.js 14 (App Router) + TypeScript
+- Tailwind CSS (no inline styles; no external CSS beyond Tailwind layers)
+- Accessibility + SEO best practices
 
 ## Getting Started
 
-First, run the development server:
+1. Install dependencies:
+   - pnpm i
+   - or npm i / yarn
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. Run dev:
+   - pnpm dev
+   - open http://localhost:3000
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Scrape homepage assets (optional; review license before using):
+   - TARGET="https://www.divinehindu.in/" pnpm scrape
+   - Assets are saved under /public/assets/scraped and /public/fonts/external
+   - Move/rename into organized folders like /public/assets/hero, /assets/products, etc.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4. Fonts
+   - If the live site uses Google Fonts (e.g., Poppins), self-host:
+     - FAMILY="Poppins:wght@400;600;700" pnpm download-font
+     - Update app/layout.tsx to use next/font/local or continue using next/font/google (self-hosted by Next at build time).
+   - Ensure your font license allows self-hosting.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+5. Content & Data
+   - Replace dummy data under /data to match the live homepage.
+   - Put images in /public/assets/* and update paths in data files.
 
-## Learn More
+6. Build
+   - pnpm build && pnpm start
 
-To learn more about Next.js, take a look at the following resources:
+## Notes
+- Image optimization uses Next/Image with local assets.
+- Carousels are implemented with scroll-snap + JS (no external CSS).
+- Accessibility: landmarks, labels, focus styles, color contrast.
+- SEO: metadata, OG/Twitter, JSON-LD (extend as needed).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Legal
+Clone only if you have the rights to do so or for internal evaluation. Verify licenses for images, fonts, and brand assets before redistribution.

@@ -1,4 +1,9 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Keep this minimal and rely on Tailwind classes only. */
 
 :root {
   --background: #ffffff;
