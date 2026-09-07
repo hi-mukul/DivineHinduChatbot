@@ -16,17 +16,17 @@ export type Product = {
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
-    <article className="group flex w-[80%] min-w-[240px] max-w-xs flex-col overflow-hidden rounded-md border border-black/5 bg-white shadow-soft sm:w-[44%] md:w-[30%] lg:w-[22%]">
+    <article className="group flex w-[80%] min-w-[240px] max-w-xs flex-col overflow-hidden rounded-xl border border-default bg-white shadow-soft hover:shadow-medium transition-smooth sm:w-[44%] md:w-[30%] lg:w-[22%]">
       <Link href={product.href} className="relative block aspect-[4/5] w-full">
         <Image
           src={product.image}
           alt={product.alt || product.name}
           fill
           sizes="(max-width:640px) 80vw, (max-width:1024px) 44vw, (max-width:1280px) 30vw, 22vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-cover transition-smooth group-hover:scale-105"
         />
         {product.badge && (
-          <span className="absolute left-2 top-2 rounded bg-brand px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-white">
+          <span className="absolute left-3 top-3 rounded-full bg-brand px-3 py-1 text-xs font-semibold text-white shadow-medium">
             {product.badge}
           </span>
         )}

@@ -10,7 +10,7 @@ export default function Footer() {
       <Container className="py-10">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <Image src="/assets/logo/logo.svg" alt={site.name} width={160} height={40} />
+            <Image src="https://www.divinehindu.in/cdn/shop/files/DiViNE_No_Moto_accd2ea5-e094-465c-8c81-92df29cbe192.png?v=1717481880" alt={site.name} width={160} height={40} />
             <p className="mt-3 max-w-sm text-sm text-ink/70">{site.footerBlurb}</p>
           </div>
 
@@ -39,7 +39,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-black/5 pt-6 text-xs text-ink/60">
+        <div className="mt-8 border-t border-black/5 pt-6 text-xs text-ink-60">
           <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
             <p>© {new Date().getFullYear()} {site.orgName}. All rights reserved.</p>
             <div className="flex gap-3">

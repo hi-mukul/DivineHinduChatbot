@@ -5,16 +5,42 @@ export type SectionProps = PropsWithChildren<{
     title?: string;
     subtitle?: string;
     className?: string;
+    size?: 'sm' | 'md' | 'lg';
+    centered?: boolean;
 }>;
 
-export default function Section({ title, subtitle, className, children }: SectionProps) {
+export default function Section({
+    title,
+    subtitle,
+    className = '',
+    size = 'md',
+    centered = false,
+    children
+}: SectionProps) {
+    const paddingClasses = {
+        sm: 'py-8 sm:py-12',
+        md: 'py-12 sm:py-16 lg:py-20',
+        lg: 'py-16 sm:py-20 lg:py-24'
+    };
+
+    const headerClasses = centered ? 'text-center' : '';
+    const containerClasses = centered ? 'text-center' : '';
+
     return (
-        <section className={className}>
-            <Container className="py-8 sm:py-10">
+        <section className={`transition-smooth ${className}`}>
+            <Container className={`${paddingClasses[size]} ${containerClasses}`}>
                 {(title || subtitle) && (
-                    <header className="mb-5 sm:mb-6">
-                        {subtitle && <p className="text-sm text-ink/60">{subtitle}</p>}
-                        {title && <h2 className="mt-1 text-xl font-semibold text-ink sm:text-2xl">{title}</h2>}
+                    <header className={`mb-8 sm:mb-12 ${headerClasses}`}>
+                        {subtitle && (
+                            <p className="text-sm font-medium tracking-wide uppercase text-brand mb-3">
+                                {subtitle}
+                            </p>
+                        )}
+                        {title && (
+                            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-ink leading-tight">
+                                {title}
+                            </h2>
+                        )}
                     </header>
                 )}
                 {children}

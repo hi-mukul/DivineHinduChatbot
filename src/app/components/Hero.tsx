@@ -16,29 +16,40 @@ export default function Hero() {
     };
 
     return (
-        <section className="bg-white">
-            <Container className="relative">
-                <div ref={scroller} className="flex snap-x snap-mandatory overflow-x-auto rounded-lg [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <section className="bg-gradient-to-b from-brand-50 to-white">
+            <Container className="relative" size="full">
+                <div ref={scroller} className="flex snap-x snap-mandatory overflow-x-auto rounded-xl shadow-large [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                     {heroSlides.map((s) => (
-                        <div key={s.id} className="relative aspect-[16/7] w-full shrink-0 snap-start">
-                            <Image src={s.image} alt={s.alt} fill className="object-cover" priority />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-50%" />
-                            <div className="absolute inset-x-0 bottom-0 p-6 text-white">
-                                <h1 className="text-2xl font-semibold md:text-3xl">{s.title}</h1>
-                                <p className="mt-1 text-white/90">{s.subtitle}</p>
-                                <Link href={s.cta.href} className="mt-3 inline-flex rounded-md bg-white px-4 py-2 text-sm font-medium text-ink">
+                        <div key={s.id} className="relative aspect-[16/7] w-full shrink-0 snap-start group">
+                            <Image src={s.image} alt={s.alt} fill className="object-cover transition-smooth group-hover:scale-105" priority />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                            <div className="absolute inset-x-0 bottom-0 p-8 text-white">
+                                <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl leading-tight">{s.title}</h1>
+                                <p className="mt-3 text-lg text-white/90 max-w-2xl">{s.subtitle}</p>
+                                <Link
+                                    href={s.cta.href}
+                                    className="mt-6 inline-flex rounded-lg bg-brand px-6 py-3 text-base font-semibold text-white shadow-medium hover:bg-brand-600 hover:shadow-large transition-smooth"
+                                >
                                     {s.cta.label}
                                 </Link>
                             </div>
                         </div>
                     ))}
                 </div>
-                <div className="pointer-events-none absolute inset-y-0 right-3 hidden items-center gap-2 md:flex">
-                    <button className="pointer-events-auto rounded-full bg-white/90 p-2 shadow-soft" aria-label="Prev" onClick={() => scrollBy(-1)}>
-                        <IconChevronLeft />
+                <div className="pointer-events-none absolute inset-y-0 right-6 hidden items-center gap-3 md:flex">
+                    <button
+                        className="pointer-events-auto rounded-full bg-white/95 p-3 shadow-medium hover:bg-white hover:shadow-large transition-smooth backdrop-blur-sm"
+                        aria-label="Previous slide"
+                        onClick={() => scrollBy(-1)}
+                    >
+                        <IconChevronLeft className="w-5 h-5" />
                     </button>
-                    <button className="pointer-events-auto rounded-full bg-white/90 p-2 shadow-soft" aria-label="Next" onClick={() => scrollBy(1)}>
-                        <IconChevronRight />
+                    <button
+                        className="pointer-events-auto rounded-full bg-white/95 p-3 shadow-medium hover:bg-white hover:shadow-large transition-smooth backdrop-blur-sm"
+                        aria-label="Next slide"
+                        onClick={() => scrollBy(1)}
+                    >
+                        <IconChevronRight className="w-5 h-5" />
                     </button>
                 </div>
             </Container>

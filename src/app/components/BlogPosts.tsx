@@ -25,7 +25,7 @@ export default function BlogPosts({ items }: { items: Post[] }) {
               <h3 className="text-base font-semibold text-ink">
                 <Link href={p.href}>{p.title}</Link>
               </h3>
-              {p.date && <p className="mt-1 text-xs text-ink/60">{p.date}</p>}
+              {p.date && <p className="mt-1 text-xs text-ink-60">{p.date}</p>}
               <p className="mt-2 line-clamp-3 text-sm text-ink/80">{p.excerpt}</p>
               <Link href={p.href} className="mt-3 inline-flex text-sm font-medium text-brand hover:underline">
                 Read more
